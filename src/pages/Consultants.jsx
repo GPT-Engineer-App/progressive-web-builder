@@ -38,7 +38,7 @@ const Consultants = ({ category, filter }) => {
   if (filter === "rating") {
     filteredConsultants = filteredConsultants.sort((a, b) => b.rating - a.rating);
   } else if (filter === "experience") {
-    filteredConsultants = filteredConsultants.sort((a, b) => b.experience - a.experience);
+    filteredConsultants = filteredConsultants.sort((a, b) => parseInt(b.experience) - parseInt(a.experience));
   } else if (filter === "price") {
     filteredConsultants = filteredConsultants.sort((a, b) => a.rate - b.rate);
   }

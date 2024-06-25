@@ -1,9 +1,15 @@
 import { Box, Flex, Link, Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useState } from "react";
 
 const Navbar = ({ onFilterChange }) => {
+  const [selectedFilter, setSelectedFilter] = useState(null);
+
+  const handleFilterChange = (filter) => {
+    setSelectedFilter(filter);
+    onFilterChange(filter);
+  };
   return (
     <Box bg="teal.500" p={4}>
       <Flex justify="space-between" align="center">
@@ -16,10 +22,10 @@ const Navbar = ({ onFilterChange }) => {
               Filter
             </MenuButton>
             <MenuList>
-              <MenuItem onClick={() => onFilterChange("rating")}>Sort by Rating</MenuItem>
-              <MenuItem onClick={() => onFilterChange("experience")}>Sort by Experience</MenuItem>
-              <MenuItem onClick={() => onFilterChange("expertise")}>Filter by Expertise</MenuItem>
-              <MenuItem onClick={() => onFilterChange("price")}>Sort by Price</MenuItem>
+              <MenuItem onClick={() => handleFilterChange("rating")}>Sort by Rating</MenuItem>
+              <MenuItem onClick={() => handleFilterChange("experience")}>Sort by Experience</MenuItem>
+              <MenuItem onClick={() => handleFilterChange("expertise")}>Filter by Expertise</MenuItem>
+              <MenuItem onClick={() => handleFilterChange("price")}>Sort by Price</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
