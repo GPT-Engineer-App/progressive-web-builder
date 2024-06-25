@@ -1,13 +1,20 @@
 import { Box, VStack, Button, Wrap, WrapItem } from "@chakra-ui/react";
 import Consultants from "./Consultants.jsx";
 import { useState } from "react";
+import Navbar from "../components/Navbar.jsx";
 
 const Home = () => {
   const categories = ["Personal", "Marriage", "Career", "Family", "Love", "Health", "Finance"];
   const [selectedCategory, setSelectedCategory] = useState("Personal");
+  const [filter, setFilter] = useState(null);
+
+  const handleFilterChange = (filter) => {
+    setFilter(filter);
+  };
 
   return (
     <Box p={4}>
+      <Navbar onFilterChange={handleFilterChange} />
       <Wrap spacing={4} justify="center">
         {categories.map((category) => (
           <WrapItem key={category}>
@@ -20,7 +27,7 @@ const Home = () => {
           </WrapItem>
         ))}
       </Wrap>
-      <Consultants category={selectedCategory} />
+      <Consultants category={selectedCategory} filter={filter} />
     </Box>
   );
 };
