@@ -25,6 +25,12 @@ const Login = ({ onLogin }) => {
   };
 
   const onSignInSubmit = () => {
+    if (phoneNumber === "1234567890") {
+      // Bypass OTP verification for the fake number
+      onLogin({ phoneNumber: "1234567890" });
+      return;
+    }
+
     setupRecaptcha();
     const appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(auth, phoneNumber, appVerifier)
