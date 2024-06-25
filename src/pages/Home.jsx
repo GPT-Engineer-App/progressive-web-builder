@@ -1,5 +1,6 @@
 import { Box, VStack, Button, Wrap, WrapItem } from "@chakra-ui/react";
 import Consultants from "./Consultants.jsx";
+import { useState } from "react";
 import Navbar from "../components/Navbar.jsx";
 
 const Home = () => {
