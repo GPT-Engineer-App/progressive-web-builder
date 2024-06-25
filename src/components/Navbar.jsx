@@ -1,5 +1,7 @@
-import { Box, Flex, Link } from "@chakra-ui/react";
+import { Box, Flex, Link, Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
+
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
   return (
@@ -9,12 +11,16 @@ const Navbar = () => {
           Samadhaan
         </Link>
         <Flex>
-          <Link as={RouterLink} to="/" color="white" mx={2}>
-            Home
-          </Link>
-          <Link as={RouterLink} to="/consultants" color="white" mx={2}>
-            Consultants
-          </Link>
+          <Menu>
+            <MenuButton as={Button} rightIcon={<ChevronDownIcon />} colorScheme="teal">
+              Filter
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Sort by Rating</MenuItem>
+              <MenuItem>Sort by Experience</MenuItem>
+              <MenuItem>Filter by Expertise</MenuItem>
+            </MenuList>
+          </Menu>
         </Flex>
       </Flex>
     </Box>
