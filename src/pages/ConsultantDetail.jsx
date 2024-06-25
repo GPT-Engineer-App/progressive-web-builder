@@ -30,8 +30,8 @@ const ConsultantDetail = () => {
       <Center mt={6}>
         <HStack spacing={4}>
           <Button leftIcon={<FaComments />} colorScheme="green"></Button>
-          <Button leftIcon={<FaPhone />} colorScheme="blue">Call (Rs. {callPrice.toFixed(2)})</Button>
-          <Button leftIcon={<FaVideo />} colorScheme="green">Video Call (Rs. {videoCallPrice.toFixed(2)})</Button>
+          <Button leftIcon={<FaPhone />} colorScheme="blue"></Button>
+          <Button leftIcon={<FaVideo />} colorScheme="green"></Button>
         </HStack>
       </Center>
     </Box>
