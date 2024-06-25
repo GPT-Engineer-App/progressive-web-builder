@@ -1,4 +1,5 @@
 import { Box, Heading, VStack, Text, Button, HStack, Center } from "@chakra-ui/react";
+import { FaComments, FaPhone, FaVideo } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 
 const compliments = [
@@ -22,9 +23,9 @@ const ConsultantDetail = () => {
       </VStack>
       <Center mt={6}>
         <HStack spacing={4}>
-          <Button colorScheme="green">Chat (Rs. 2-50)</Button>
-          <Button colorScheme="blue">Call (Higher)</Button>
-          <Button colorScheme="green">Video Call (Highest)</Button>
+          <Button leftIcon={<FaComments />} colorScheme="green">Chat (Rs. 2-50)</Button>
+          <Button leftIcon={<FaPhone />} colorScheme="blue">Call (Rs. 50-100)</Button>
+          <Button leftIcon={<FaVideo />} colorScheme="green">Video Call (Rs. 100-200)</Button>
         </HStack>
       </Center>
     </Box>
