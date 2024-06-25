@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Text, Button } from "@chakra-ui/react";
+import { Box, VStack, Text, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const consultants = [
@@ -32,13 +32,20 @@ const consultants = [
   { name: "Zack Adams", expertise: "Personal", experience: "12 years", rating: 4.0, rate: 6 },
 ];
 
-const Consultants = ({ category }) => {
+const Consultants = ({ category, filter }) => {
+  let filteredConsultants = consultants.filter((consultant) => consultant.expertise === category);
 
-  const filteredConsultants = consultants.filter((consultant) => consultant.expertise === category);
+  if (filter === "rating") {
+    filteredConsultants = filteredConsultants.sort((a, b) => b.rating - a.rating);
+  } else if (filter === "experience") {
+    filteredConsultants = filteredConsultants.sort((a, b) => b.experience - a.experience);
+  } else if (filter === "price") {
+    filteredConsultants = filteredConsultants.sort((a, b) => a.rate - b.rate);
+  }
 
   return (
     <Box p={4}>
-      <Heading mb={4}>Consultants for {category}</Heading>
+      
       <VStack spacing={4}>
         {filteredConsultants.map((consultant) => (
           <Box key={consultant.name} p={4} borderWidth="1px" borderRadius="md" w="100%">
