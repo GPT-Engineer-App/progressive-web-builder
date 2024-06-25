@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Text, Button, HStack } from "@chakra-ui/react";
+import { Box, Heading, VStack, Text, Button, HStack, Center } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
 const compliments = [
@@ -20,11 +20,13 @@ const ConsultantDetail = () => {
           <Text key={index}>"{compliment}"</Text>
         ))}
       </VStack>
-      <HStack spacing={4} mt={6}>
-        <Button colorScheme="green">Chat (Rs. 2-50)</Button>
-        <Button colorScheme="blue">Call (Higher)</Button>
-        <Button colorScheme="green">Video Call (Highest)</Button>
-      </HStack>
+      <Center mt={6}>
+        <HStack spacing={4}>
+          <Button colorScheme="green">Chat (Rs. 2-50)</Button>
+          <Button colorScheme="blue">Call (Higher)</Button>
+          <Button colorScheme="green">Video Call (Highest)</Button>
+        </HStack>
+      </Center>
     </Box>
   );
 };
