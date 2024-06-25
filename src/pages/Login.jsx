@@ -1,5 +1,5 @@
 import { useState } from "react";
-import firebase from "firebase/app";
+import { PhoneAuthProvider } from "firebase/auth";
 import { Box, Button, Input, VStack, Heading, Text } from "@chakra-ui/react";
 import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 import { auth } from "../firebaseConfig";
