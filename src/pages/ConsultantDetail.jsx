@@ -12,6 +12,12 @@ const ConsultantDetail = () => {
   const { name } = useParams();
   const consultantCompliments = compliments.find((c) => c.consultant === name)?.compliments || [];
 
+  // Assuming the chat price is displayed as a range (e.g., Rs. 2-50)
+  const chatPriceRange = "Rs. 2-50";
+  const chatPriceMax = parseInt(chatPriceRange.split('-')[1].trim().replace('Rs. ', ''));
+  const callPrice = chatPriceMax * 1.2;
+  const videoCallPrice = chatPriceMax * 1.4;
+
   return (
     <Box p={4}>
       <Heading mb={4}>{name}</Heading>
@@ -23,9 +29,9 @@ const ConsultantDetail = () => {
       </VStack>
       <Center mt={6}>
         <HStack spacing={4}>
-          <Button leftIcon={<FaComments />} colorScheme="green">Chat (Rs. 2-50)</Button>
-          <Button leftIcon={<FaPhone />} colorScheme="blue">Call (Rs. 50-100)</Button>
-          <Button leftIcon={<FaVideo />} colorScheme="green">Video Call (Rs. 100-200)</Button>
+          <Button leftIcon={<FaComments />} colorScheme="green"></Button>
+          <Button leftIcon={<FaPhone />} colorScheme="blue">Call (Rs. {callPrice.toFixed(2)})</Button>
+          <Button leftIcon={<FaVideo />} colorScheme="green">Video Call (Rs. {videoCallPrice.toFixed(2)})</Button>
         </HStack>
       </Center>
     </Box>
