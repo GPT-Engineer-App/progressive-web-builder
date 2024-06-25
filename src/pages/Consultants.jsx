@@ -1,4 +1,4 @@
-import { Box, VStack, Text, Button } from "@chakra-ui/react";
+import { Box, VStack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const consultants = [
@@ -45,18 +45,16 @@ const Consultants = ({ category, filter }) => {
 
   return (
     <Box p={4}>
-      
       <VStack spacing={4}>
         {filteredConsultants.map((consultant) => (
           <Box key={consultant.name} p={4} borderWidth="1px" borderRadius="md" w="100%">
-            <Text fontSize="xl">{consultant.name}</Text>
+            <Text as={Link} to={`/consultant/${consultant.name}`} color="blue.500" fontSize="xl">
+              {consultant.name}
+            </Text>
             <Text color="green.500">Rs {consultant.rate}/min</Text>
             <Text>Expertise: {consultant.expertise}</Text>
             <Text>Experience: {consultant.experience}</Text>
             <Text>Rating: {consultant.rating}</Text>
-            <Button as={Link} to={`/consultant/${consultant.name}`} colorScheme="blue" mt={2}>
-              View Details
-            </Button>
           </Box>
         ))}
       </VStack>
