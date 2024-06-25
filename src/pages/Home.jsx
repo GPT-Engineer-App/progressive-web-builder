@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Button, HStack } from "@chakra-ui/react";
+import { Box, Heading, VStack, Button, HStack, Wrap, WrapItem } from "@chakra-ui/react";
 import Consultants from "./Consultants.jsx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -10,17 +10,18 @@ const Home = () => {
   return (
     <Box p={4}>
       <Heading mb={4}>Samadhaan Categories</Heading>
-      <HStack spacing={4} overflowX="auto">
+      <Wrap spacing={4} justify="center">
         {categories.map((category) => (
-          <Button
-            key={category}
-            colorScheme={selectedCategory === category ? "teal" : "gray"}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </Button>
+          <WrapItem key={category}>
+            <Button
+              colorScheme={selectedCategory === category ? "blue" : "gray"}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </Button>
+          </WrapItem>
         ))}
-      </HStack>
+      </Wrap>
       <Consultants category={selectedCategory} />
     </Box>
   );
