@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <Box p={4}>
-      <Heading mb={4}>Troubleshooter Categories</Heading>
+      <Heading mb={4}>Samadhaan Categories</Heading>
       <HStack spacing={4} overflowX="auto">
         {categories.map((category) => (
           <Button

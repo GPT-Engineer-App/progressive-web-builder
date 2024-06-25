@@ -6,7 +6,7 @@ const Navbar = () => {
     <Box bg="teal.500" p={4}>
       <Flex justify="space-between" align="center">
         <Link as={RouterLink} to="/" color="white" fontWeight="bold" fontSize="lg">
-          Troubleshooter
+          Samadhaan
         </Link>
         <Flex>
           <Link as={RouterLink} to="/" color="white" mx={2}>
