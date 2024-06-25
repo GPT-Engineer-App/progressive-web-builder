@@ -37,7 +37,7 @@ const Login = ({ onLogin }) => {
   };
 
   const onVerifyOtp = () => {
-    const credential = firebase.auth.PhoneAuthProvider.credential(
+    const credential = PhoneAuthProvider.credential(
       verificationId,
       otp
     );
