@@ -15,7 +15,7 @@ const Navbar = ({ onFilterChange, selectedCategory, onCategoryChange }) => {
     <Box bg="teal.500" p={4}>
       <Flex justify="space-between" align="center">
         <Link as={RouterLink} to="/" color="white" fontWeight="bold" fontSize="lg">
-          Samadhaan
+          SamadhanGuru
         </Link>
         <Flex>
           <Menu>
