@@ -1,5 +1,5 @@
 import { Box, Heading, VStack, Text, Button } from "@chakra-ui/react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const consultants = [
   { name: "John Doe", expertise: "Marriage", experience: "10 years", rating: 4.5 },
@@ -7,10 +7,7 @@ const consultants = [
   // Add more consultants as needed
 ];
 
-const Consultants = () => {
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const category = params.get("category");
+const Consultants = ({ category }) => {
 
   const filteredConsultants = consultants.filter((consultant) => consultant.expertise === category);
 

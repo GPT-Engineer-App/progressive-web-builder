@@ -1,19 +1,25 @@
-import { Box, Heading, VStack, Button } from "@chakra-ui/react";
+import { Box, Heading, VStack, Button, HStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const categories = ["Marriage", "Career", "Family", "Love", "Personal", "Health", "Finance"];
+  const categories = ["Personal", "Marriage", "Career", "Family", "Love", "Health", "Finance"];
+  const [selectedCategory, setSelectedCategory] = useState("Personal");
 
   return (
     <Box p={4}>
       <Heading mb={4}>Troubleshooter Categories</Heading>
-      <VStack spacing={4}>
+      <HStack spacing={4} overflowX="auto">
         {categories.map((category) => (
-          <Button as={Link} to={`/consultants?category=${category}`} key={category} colorScheme="teal" variant="outline">
+          <Button
+            key={category}
+            colorScheme={selectedCategory === category ? "teal" : "gray"}
+            onClick={() => setSelectedCategory(category)}
+          >
             {category}
           </Button>
         ))}
-      </VStack>
+      </HStack>
+      <Consultants category={selectedCategory} />
     </Box>
   );
 };
