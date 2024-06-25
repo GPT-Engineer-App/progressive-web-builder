@@ -1,6 +1,5 @@
-import { Box, Heading, VStack, Button, HStack, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, VStack, Button, Wrap, WrapItem } from "@chakra-ui/react";
 import Consultants from "./Consultants.jsx";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Home = () => {
@@ -9,7 +8,6 @@ const Home = () => {
 
   return (
     <Box p={4}>
-      <Heading mb={4}>Samadhaan Categories</Heading>
       <Wrap spacing={4} justify="center">
         {categories.map((category) => (
           <WrapItem key={category}>
