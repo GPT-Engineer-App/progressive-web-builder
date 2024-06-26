@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
-const Navbar = ({ onFilterChange, selectedCategory, onCategoryChange }) => {
+const Navbar = ({ onFilterChange }) => {
   const [selectedFilter, setSelectedFilter] = useState(null);
 
   const handleFilterChange = (filter) => {
@@ -29,18 +29,7 @@ const Navbar = ({ onFilterChange, selectedCategory, onCategoryChange }) => {
               <MenuItem onClick={() => handleFilterChange("price")}>Sort by Price</MenuItem>
             </MenuList>
           </Menu>
-          <Menu>
-            <MenuButton as={Button} rightIcon={<ChevronDownIcon />} colorScheme="teal">
-              Category
-            </MenuButton>
-            <MenuList>
-              {["Personal", "Marriage", "Career", "Family", "Love", "Health", "Finance"].map((category) => (
-                <MenuItem key={category} onClick={() => onCategoryChange(category)}>
-                  {category}
-                </MenuItem>
-              ))}
-            </MenuList>
-          </Menu>
+          
         </Flex>
       </Flex>
     </Box>
