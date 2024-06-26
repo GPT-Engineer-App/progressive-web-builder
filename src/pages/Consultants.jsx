@@ -47,8 +47,8 @@ const Consultants = ({ category, filter }) => {
     <Box p={4}>
       <VStack spacing={4}>
         {filteredConsultants.map((consultant) => (
-          <Box key={consultant.name} p={4} borderWidth="1px" borderRadius="md" w="100%">
-            <Text as={Link} to={`/consultant/${consultant.name}`} color="blue.500" fontSize="xl">
+          <Box key={consultant.name} p={4} borderWidth="1px" borderRadius="md" w="100%" as={Link} to={`/consultant/${consultant.name}`}>
+            <Text color="blue.500" fontSize="xl">
               {consultant.name}
             </Text>
             <Text color="green.500">Rs {consultant.rate}/min</Text>
