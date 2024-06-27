@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, Button, Input, VStack, Heading, Text } from "@chakra-ui/react";
-import { DatePicker } from "react-datepicker";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const UserDetails = ({ onSubmit }) => {
