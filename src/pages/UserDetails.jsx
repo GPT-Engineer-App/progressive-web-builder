@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Box, Button, Input, VStack, Heading, Text } from "@chakra-ui/react";
+import { DatePicker } from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const UserDetails = ({ onSubmit }) => {
   const [fullName, setFullName] = useState("");
-  const [dob, setDob] = useState("");
+  const [dob, setDob] = useState(null);
   const [details, setDetails] = useState("");
 
   const handleSubmit = () => {
@@ -19,10 +21,14 @@ const UserDetails = ({ onSubmit }) => {
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
         />
-        <Input
-          placeholder="Date of Birth"
-          value={dob}
-          onChange={(e) => setDob(e.target.value)}
+        <DatePicker
+          selected={dob}
+          onChange={(date) => setDob(date)}
+          placeholderText="Date of Birth"
+          dateFormat="yyyy/MM/dd"
+          showYearDropdown
+          scrollableYearDropdown
+          yearDropdownItemNumber={100}
         />
         <Input
           placeholder="Details"
