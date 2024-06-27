@@ -1,14 +1,22 @@
 import { useState } from "react";
 import { PhoneAuthProvider } from "firebase/auth";
-import { Box, Button, Input, VStack, Heading, Text, Image } from "@chakra-ui/react";
+import { Box, Button, Input, VStack, Heading, Text, Image, Select, HStack } from "@chakra-ui/react";
 import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 import { auth } from "../firebaseConfig";
+
+const countryCodes = [
+  { code: "+1", name: "United States", flag: "🇺🇸" },
+  { code: "+91", name: "India", flag: "🇮🇳" },
+  { code: "+44", name: "United Kingdom", flag: "🇬🇧" },
+  // Add more country codes as needed
+];
 
 const Login = ({ onLogin }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
   const [verificationId, setVerificationId] = useState(null);
   const [error, setError] = useState("");
+  const [selectedCountryCode, setSelectedCountryCode] = useState(countryCodes[0].code);
 
   const setupRecaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(
@@ -33,7 +41,7 @@ const Login = ({ onLogin }) => {
 
     setupRecaptcha();
     const appVerifier = window.recaptchaVerifier;
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    signInWithPhoneNumber(auth, selectedCountryCode + phoneNumber, appVerifier)
       .then((confirmationResult) => {
         setVerificationId(confirmationResult.verificationId);
       })
@@ -87,11 +95,25 @@ const Login = ({ onLogin }) => {
       >
         <Heading mb={4} textAlign="center">Login</Heading>
         <VStack spacing={4}>
-          <Input
-            placeholder="Phone Number"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
+          <HStack width="100%">
+            <Select
+              value={selectedCountryCode}
+              onChange={(e) => setSelectedCountryCode(e.target.value)}
+              width="30%"
+            >
+              {countryCodes.map((country) => (
+                <option key={country.code} value={country.code}>
+                  {country.flag} {country.code}
+                </option>
+              ))}
+            </Select>
+            <Input
+              placeholder="Phone Number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              width="70%"
+            />
+          </HStack>
           <Button onClick={onSignInSubmit} width="100%">Send OTP</Button>
           {verificationId && (
             <>
