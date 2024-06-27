@@ -64,52 +64,48 @@ const Login = ({ onLogin }) => {
       backgroundSize="cover"
       backgroundPosition="center"
       height="100vh"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
     >
       <Text
         fontSize="4xl"
         fontWeight="bold"
-        color="white"
-        position="absolute"
-        top="50%"
-        left="50%"
-        transform="translate(-50%, -50%)"
+        color="navy"
+        mb={8}
       >
         SamadhanGuru
       </Text>
-      <Heading
-        mb={4}
-        position="absolute"
-        bottom="20%"
-        left="50%"
-        transform="translateX(-50%)"
+      <Box
+        p={8}
+        bg="white"
+        borderRadius="md"
+        boxShadow="md"
+        width="100%"
+        maxWidth="400px"
       >
-        Login
-      </Heading>
-      <VStack
-        spacing={4}
-        position="absolute"
-        bottom="10%"
-        left="50%"
-        transform="translateX(-50%)"
-      >
-        <Input
-          placeholder="Phone Number"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
-        <Button onClick={onSignInSubmit}>Send OTP</Button>
-        {verificationId && (
-          <>
-            <Input
-              placeholder="OTP"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-            />
-            <Button onClick={onVerifyOtp}>Verify OTP</Button>
-          </>
-        )}
-        {error && <Text color="red.500">{error}</Text>}
-      </VStack>
+        <Heading mb={4} textAlign="center">Login</Heading>
+        <VStack spacing={4}>
+          <Input
+            placeholder="Phone Number"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+          <Button onClick={onSignInSubmit} width="100%">Send OTP</Button>
+          {verificationId && (
+            <>
+              <Input
+                placeholder="OTP"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+              />
+              <Button onClick={onVerifyOtp} width="100%">Verify OTP</Button>
+            </>
+          )}
+          {error && <Text color="red.500">{error}</Text>}
+        </VStack>
+      </Box>
       <div id="recaptcha-container"></div>
     </Box>
   );
