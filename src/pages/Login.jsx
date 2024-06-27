@@ -122,7 +122,7 @@ const Login = ({ onLogin }) => {
               onChange={(e) => setPhoneNumber(e.target.value)}
               width="100%"
             />
-          </HStack>
+          </VStack>
           <Button onClick={onSignInSubmit} width="100%">Send OTP</Button>
           {verificationId && (
             <>
