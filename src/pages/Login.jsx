@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PhoneAuthProvider } from "firebase/auth";
-import { Box, Button, Input, VStack, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Input, VStack, Heading, Text, Image } from "@chakra-ui/react";
 import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 
@@ -58,9 +58,40 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <Box p={4}>
-      <Heading mb={4}>Login</Heading>
-      <VStack spacing={4}>
+    <Box
+      p={4}
+      backgroundImage="url('/images/green-textured-background.jpg')"
+      backgroundSize="cover"
+      backgroundPosition="center"
+      height="100vh"
+    >
+      <Text
+        fontSize="4xl"
+        fontWeight="bold"
+        color="white"
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+      >
+        SamadhanGuru
+      </Text>
+      <Heading
+        mb={4}
+        position="absolute"
+        bottom="20%"
+        left="50%"
+        transform="translateX(-50%)"
+      >
+        Login
+      </Heading>
+      <VStack
+        spacing={4}
+        position="absolute"
+        bottom="10%"
+        left="50%"
+        transform="translateX(-50%)"
+      >
         <Input
           placeholder="Phone Number"
           value={phoneNumber}
