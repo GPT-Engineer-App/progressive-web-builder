@@ -2,6 +2,11 @@ import { useState } from "react";
 import { PhoneAuthProvider } from "firebase/auth";
 import { Box, Button, Input, VStack, Heading, Text, Image, Select, HStack } from "@chakra-ui/react";
 import { signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
+
+const validatePhoneNumber = (number) => {
+  const phoneRegex = /^[0-9]{10}$/;
+  return phoneRegex.test(number);
+};
 import { auth } from "../firebaseConfig";
 
 const countryCodes = [
@@ -33,6 +38,11 @@ const Login = ({ onLogin }) => {
   };
 
   const onSignInSubmit = () => {
+    if (!validatePhoneNumber(phoneNumber)) {
+      setError("Invalid phone number. Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     if (phoneNumber === "1234567890") {
       // Bypass OTP verification for the fake number
       onLogin({ phoneNumber: "1234567890" });
@@ -95,11 +105,11 @@ const Login = ({ onLogin }) => {
       >
         <Heading mb={4} textAlign="center">Login</Heading>
         <VStack spacing={4}>
-          <HStack width="100%">
+          <VStack width="100%">
             <Select
               value={selectedCountryCode}
               onChange={(e) => setSelectedCountryCode(e.target.value)}
-              width="30%"
+              width="100%"
             >
               {countryCodes.map((country) => (
                 <option key={country.code} value={country.code}>
@@ -111,7 +121,7 @@ const Login = ({ onLogin }) => {
               placeholder="Phone Number"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              width="70%"
+              width="100%"
             />
           </HStack>
           <Button onClick={onSignInSubmit} width="100%">Send OTP</Button>
