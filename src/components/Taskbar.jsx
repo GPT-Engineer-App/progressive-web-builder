@@ -7,16 +7,16 @@ const Taskbar = () => {
     <Box bg="teal.500" p={4} position="fixed" bottom="0" width="100%">
       <Flex justify="space-around">
         <Button as={RouterLink} to="/settings" colorScheme="teal" variant="ghost">
-          <FaCog size="24px" />
+          <FaCog size="24px" color="white" />
         </Button>
         <Button as={RouterLink} to="/account" colorScheme="teal" variant="ghost">
-          <FaUser size="24px" />
+          <FaUser size="24px" color="white" />
         </Button>
         <Button as={RouterLink} to="/consultants" colorScheme="teal" variant="ghost">
-          <FaUsers size="24px" />
+          <FaUsers size="24px" color="white" />
         </Button>
         <Button as={RouterLink} to="/" colorScheme="teal" variant="ghost">
-          <FaHome size="24px" />
+          <FaHome size="24px" color="white" />
         </Button>
       </Flex>
     </Box>
