@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <Box bg="teal.500" p={4}>
+    <Box bg="#e28743" p={4}>
       <Flex justify="space-between" align="center">
         <Link as={RouterLink} to="/" color="white" fontWeight="bold" fontSize="lg">
           SamadhanGuru
