@@ -29,7 +29,15 @@ const Navbar = ({ onFilterChange }) => {
               <MenuItem onClick={() => handleFilterChange("price")}>Sort by Price</MenuItem>
             </MenuList>
           </Menu>
-          
+          <Menu>
+            <MenuButton as={Button} rightIcon={<ChevronDownIcon />} colorScheme="teal" ml={4}>
+              Options
+            </MenuButton>
+            <MenuList>
+              <MenuItem as={RouterLink} to="/settings">Settings</MenuItem>
+              <MenuItem as={RouterLink} to="/account">Account</MenuItem>
+            </MenuList>
+          </Menu>
         </Flex>
       </Flex>
     </Box>

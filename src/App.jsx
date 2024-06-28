@@ -6,6 +6,8 @@ import ConsultantDetail from "./pages/ConsultantDetail.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Login from "./pages/Login.jsx";
 import UserDetails from "./pages/UserDetails.jsx";
+import Settings from "./pages/Settings.jsx";
+import Account from "./pages/Account.jsx";
 import { useState } from "react";
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/consultants" element={<Consultants />} />
         <Route exact path="/consultant/:name" element={<ConsultantDetail />} />
+        <Route exact path="/settings" element={<Settings />} />
+        <Route exact path="/account" element={<Account />} />
       </Routes>
     </Router>
   );
