@@ -1,4 +1,5 @@
-import { Box, Flex, Link, Button } from "@chakra-ui/react";
+import { Box, Flex, Button } from "@chakra-ui/react";
+import { FaCog, FaUser, FaUsers, FaHome } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
 
 const Taskbar = () => {
@@ -6,16 +7,16 @@ const Taskbar = () => {
     <Box bg="teal.500" p={4} position="fixed" bottom="0" width="100%">
       <Flex justify="space-around">
         <Button as={RouterLink} to="/settings" colorScheme="teal" variant="ghost">
-          Settings
+          <FaCog size="24px" />
         </Button>
         <Button as={RouterLink} to="/account" colorScheme="teal" variant="ghost">
-          Account
+          <FaUser size="24px" />
         </Button>
         <Button as={RouterLink} to="/consultants" colorScheme="teal" variant="ghost">
-          Consultants
+          <FaUsers size="24px" />
         </Button>
         <Button as={RouterLink} to="/" colorScheme="teal" variant="ghost">
-          Home
+          <FaHome size="24px" />
         </Button>
       </Flex>
     </Box>
