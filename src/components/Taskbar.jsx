@@ -4,7 +4,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 const Taskbar = () => {
   return (
-    <Box bg="teal.500" p={4} position="fixed" bottom="0" width="100%">
+    <Box bg="#e28743" p={4} position="fixed" bottom="0" width="100%">
       <Flex justify="space-around">
         <Button as={RouterLink} to="/settings" colorScheme="teal" variant="ghost">
           <FaCog size="24px" color="white" />
