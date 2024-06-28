@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import Consultants from "./pages/Consultants.jsx";
 import ConsultantDetail from "./pages/ConsultantDetail.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Taskbar from "./components/Taskbar.jsx";
 import Login from "./pages/Login.jsx";
 import UserDetails from "./pages/UserDetails.jsx";
 import Settings from "./pages/Settings.jsx";
@@ -40,6 +41,7 @@ function App() {
         <Route exact path="/settings" element={<Settings />} />
         <Route exact path="/account" element={<Account />} />
       </Routes>
+      <Taskbar />
     </Router>
   );
 }
